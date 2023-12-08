@@ -70,5 +70,4 @@ class PhoneBookTest {
 
         Assertions.assertEquals(expected, result);
     }
-
 }
