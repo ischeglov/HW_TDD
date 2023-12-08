@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -43,6 +44,15 @@ class PhoneBookTest {
         return Stream.of(Arguments.of("+79876543210", "Ivan"),
                 Arguments.of("+79998765433", null)
         );
+    }
+
+    @Test
+    public void testFindByName() {
+        String expected = "+79876543210";
+
+        String result = phoneBook.findByName("Ivan");
+
+        Assertions.assertEquals(expected, result);
     }
 
 }
