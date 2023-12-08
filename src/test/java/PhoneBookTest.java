@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -8,6 +9,11 @@ import java.util.stream.Stream;
 class PhoneBookTest {
 
     PhoneBook phoneBook = new PhoneBook();
+
+    @BeforeEach
+    public void prepare() {
+        phoneBook.add("Ivan", "+79876543210");
+    }
 
     @ParameterizedTest
     @MethodSource("sourceAdd")
