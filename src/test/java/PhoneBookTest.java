@@ -25,4 +25,18 @@ class PhoneBookTest {
         );
     }
 
+    @ParameterizedTest
+    @MethodSource("sourceFindByNumber")
+    public void testFindByNumber(String phone, String expected) {
+        String result = phoneBook.findByNumber(phone);
+
+        Assertions.assertEquals(expected, result);
+    }
+
+    public static Stream<Arguments> sourceFindByNumber() {
+        return Stream.of(Arguments.of("+79876543210", "Ivan"),
+                Arguments.of("+79998765433", null)
+        );
+    }
+
 }
